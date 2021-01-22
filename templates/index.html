@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='cottage.css') }}">
+	<title>Cottage: Real Homemade</title>
+</head>
+<body>
+	<div id="mySidenav" class="sidenav">
+		<a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+		<a href="#">Dashboard</a>
+		<a href="#">Account</a>
+	</div>
+
+	<header class="header purple">
+		<span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; Cottage</span>
+	</header>
+
+	<main id="main" class="grey">
+		
+		{% for event in events %}
+			<div class="container">
+				<button type="button" class="event collapsible">
+					{{ event['cottage_id'] }}
+					(
+					{% for i in range(0, event['rating']) %}
+						⭐
+					{% endfor %}
+					)
+				</button>
+				<div class="row content">
+					<div class="column widget purple">
+						<img height=250 src="/static/{{ event['cottage_id'] }}/cover.jpg">
+					</div>
+				    <div class="column widget purple">
+				    	<h4>About Us</h4>
+				    	<img height=150 src="/static/{{ event['cottage_id'] }}/owner_image.jpg">
+				    	<p>{{ event['cottage_description'] }}</p>
+				    </div>
+				    <div class="column widget purple">
+				    	<h4>Wares</h4>
+				    	<ul>
+				    		{% for item in event['wares'] %}
+				    		<li>{{ item }}</li>
+				    		{% endfor %}
+				    	</ul>
+				    	
+				    </div>
+				</div>
+			</div>
+			
+		{% endfor %}
+	</main>
+	<footer class="footer grey">
+		<a href="https://flipz.rocks/">https://flipz.rocks/</a>
+	</footer>
+	<script>
+		var coll = document.getElementsByClassName("collapsible");
+		var i;
+
+		for (i = 0; i < coll.length; i++) {
+		  coll[i].addEventListener("click", function() {
+		    this.classList.toggle("active");
+		    var content = this.nextElementSibling;
+		    if (content.style.maxHeight){
+		      content.style.maxHeight = null;
+		    } else {
+		      content.style.maxHeight = content.scrollHeight + "px";
+		    } 
+		  });
+		}
+		function openNav() {
+			document.getElementById("mySidenav").style.width = "250px";
+			document.getElementById("main").style.marginLeft = "250px";
+			document.body.style.backgroundColor = "rgba(0,0,0,0.4)";
+		}
+
+		function closeNav() {
+			document.getElementById("mySidenav").style.width = "0";
+			document.getElementById("main").style.marginLeft= "0";
+			document.body.style.backgroundColor = "white";
+		}
+	</script>
+</body>
+</html>

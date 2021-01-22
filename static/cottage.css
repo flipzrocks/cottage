@@ -1,0 +1,166 @@
+/* Notable Events */
+.event {
+  background-color: #777;
+  color: white;
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 15px;
+}
+
+.active, .event:hover {
+  background-color: #555;
+  box-shadow:0 8px 16px 0 rgba(0,0,0,0.2);
+  transform: scale(1.02);
+}
+
+.content {
+  padding: 0 18px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-out;
+  background-color: #f1f1f1;
+}
+.container {
+  padding: 2px 16px;
+}
+
+/* Major Pieces */
+body {
+	display: grid;
+	height: 100vh;
+	grid-template: auto 1fr auto / auto 1fr auto;
+	font-family: sans-serif;
+ }
+header {
+	padding: 1rem;
+	grid-column: 1 / 4;
+}
+
+main {
+	grid-column: 1 / 4;
+}
+footer {
+	padding: 1rem;
+	grid-column: 1 / 4;
+	text-align: center;
+}
+
+
+/* Buttons */
+.menu_botton {
+	border: none;
+	color: #BEBEBE;
+	text-align: center;
+	text-decoration: none;
+	display: inline-block;
+	padding: 16px 32px;
+	font-size: 16px;
+	margin: 4px 2px;
+	transition-duration: 0.7s;
+	cursor: pointer;
+}
+.button1 {
+  background-color: #BEBEBE; 
+  color: black; 
+  border: 2px solid #330066;
+}
+
+.button1:hover {
+  background-color: #330066;
+  color: #BEBEBE;
+}
+
+/* Background color classes */
+.purple {
+	background-color: #B695C0
+}
+.grey {
+	background-color: #BEBEBE;
+}
+
+/* Side Nav */
+.sidenav {
+  height: 100%;
+  width: 0;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  background-color: #111;
+  overflow-x: hidden;
+  transition: 0.5s;
+  padding-top: 60px;
+}
+
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+#main {
+  transition: margin-left .5s;
+  padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+/* Open Event Widgets */
+
+/* Float four columns side by side */
+.column {
+  flex: 1 1 150px;
+  margin: 5px;
+}
+
+/* Remove extra left and right margins, due to padding */
+.row {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Responsive columns */
+@media screen and (max-width: 600px) {
+  .column {
+    width: 100%;
+    display: block;
+    margin-bottom: 20px;
+  }
+}
+
+/* Style the counter cards */
+.widget {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+  padding: 16px;
+  text-align: center;
+  background-color: #f1f1f1;
+}
